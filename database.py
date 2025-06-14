@@ -12,7 +12,7 @@ async def init_db():
             )
         """)
         
-        await db.execute("DROP TABLE IF EXISTS movies")
+      
         await db.execute("""
             CREATE TABLE movies (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
