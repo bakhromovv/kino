@@ -16,7 +16,6 @@ from aiogram.types import InlineQuery, InlineQueryResultArticle, InputTextMessag
 from uuid import uuid4
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 import aiohttp
-from telegram import InlineQueryResultPhoto
 from aiogram.filters import CommandStart
 from config import BOT_TOKEN,  DEFAULT_LANGUAGE, ADMIN_ID
 from database import (
