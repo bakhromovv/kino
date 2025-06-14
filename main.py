@@ -652,13 +652,14 @@ async def update_title_handler(message: Message, state: FSMContext):
     await state.clear()
 # --- Main ---
 
-import asyncio
-
 async def main():
+    await bot.delete_webhook(drop_pending_updates=True)  # Eski webhooklarni o‘chirish
     try:
-        await dp.start_polling(bot)  # bot obyektini berish kerak
+        await dp.start_polling(bot)
     finally:
         await bot.session.close()
 
 if __name__ == "__main__":
+    import asyncio
     asyncio.run(main())
+
