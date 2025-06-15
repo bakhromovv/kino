@@ -22,8 +22,8 @@ from database import (
     add_user, delete_movie, get_all_movies, get_language, search_movies, add_movie, get_all_users,
     get_movie_by_id, get_total_users_count, get_total_movies_count, update_movie_title
 )
+from database import init_db
 
-import asyncio
 
 logging.basicConfig(level=logging.INFO)
 
@@ -653,12 +653,13 @@ async def update_title_handler(message: Message, state: FSMContext):
 # --- Main ---
 
 async def main():
-    await bot.delete_webhook(drop_pending_updates=True)  # Eski webhooklarni o‘chirish
+    await init_db()  # <-- Jadval yaratish
+    await bot.delete_webhook(drop_pending_updates=True)
     try:
         await dp.start_polling(bot)
     finally:
-        await bot.session.close()
-
+        await bot.session.close() 
+        
 if __name__ == "__main__":
     import asyncio
     asyncio.run(main())
