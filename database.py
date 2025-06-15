@@ -14,7 +14,7 @@ async def init_db():
         
       
         await db.execute("""
-            CREATE TABLE movies (
+             CREATE TABLE IF NOT EXISTS movies (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 title_uz TEXT,
                 description_uz TEXT,
